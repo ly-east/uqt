@@ -15,6 +15,9 @@ public:
 
   // Get geometry which is not affected by scale
   static QRect getUnscaledRect(const QRect &rect);
+
+  // PreferAntialias, PreferFullHinting
+  static void setFontStyle();
 };
 } // namespace uqt
 

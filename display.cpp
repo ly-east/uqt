@@ -1,5 +1,6 @@
 #include "display.h"
 #include <QApplication>
+#include <QFont>
 #include <QWindow>
 #include <cmath>
 #include <limits>
@@ -23,5 +24,15 @@ QRect Display::getUnscaledRect(const QRect &rect) {
   y += ((rect.height() - height) >> 1);
 
   return QRect(QPoint(x, y), QSize(width, height));
+}
+
+void Display::setFontStyle() {
+  QFont font = qApp->font();
+
+  // adapt to font render hinting
+  font.setStyleStrategy(QFont::PreferAntialias);
+  font.setHintingPreference(QFont::PreferFullHinting);
+
+  QApplication::setFont(font);
 }
 } // namespace uqt
