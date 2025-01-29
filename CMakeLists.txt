@@ -31,3 +31,5 @@ add_library(uqt SHARED
 target_link_libraries(uqt PRIVATE Qt6::Core Qt6::Widgets)
 
 target_compile_definitions(uqt PRIVATE UQT_LIBRARY)
+
+install(TARGETS uqt)
