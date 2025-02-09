@@ -4,7 +4,7 @@
 #ifndef QTSINGLEAPPLICATION_H
 #define QTSINGLEAPPLICATION_H
 
-#include "uqt_global.h"
+#include "../uqt_global.h"
 #include <QApplication>
 
 class QtLocalPeer;

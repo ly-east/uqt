@@ -4,7 +4,7 @@
 #ifndef QTLOCKEDFILE_H
 #define QTLOCKEDFILE_H
 
-#include "uqt_global.h"
+#include "../uqt_global.h"
 #include <QFile>
 #ifdef Q_OS_WIN
 #include <QVector>
