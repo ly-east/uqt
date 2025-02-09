@@ -25,7 +25,7 @@ find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
 # ===================================================================
 # QtSingleApplication
 
-set(UQT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(UQT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include/uqt)
 set(UQT_SINGLETON_INCLUDE_DIR "${UQT_INCLUDE_DIR}/QtSingleApplication")
 
 list(APPEND UQT_SINGLETON_SRC_FILE
