@@ -1,6 +1,6 @@
 # QtSingleApplication
 
-set(UQT_SINGLETON_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include/QtSingleApplication")
+set(UQT_SINGLETON_INCLUDE_DIR "../include/QtSingleApplication")
 
 list(APPEND UQT_SINGLETON_SRC_FILE
   ${UQT_SINGLETON_INCLUDE_DIR}/qtlocalpeer.h
