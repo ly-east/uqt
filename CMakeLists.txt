@@ -22,4 +22,50 @@ endif(WIN32)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
 
-add_subdirectory(lib)
+# ===================================================================
+# QtSingleApplication
+
+set(UQT_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(UQT_SINGLETON_INCLUDE_DIR "${UQT_INCLUDE_DIR}/QtSingleApplication")
+
+list(APPEND UQT_SINGLETON_SRC_FILE
+  ${UQT_SINGLETON_INCLUDE_DIR}/qtlocalpeer.h
+  ${UQT_SINGLETON_INCLUDE_DIR}/qtlockedfile.h
+  ${UQT_SINGLETON_INCLUDE_DIR}/qtsingleapplication.h
+  ${UQT_SINGLETON_INCLUDE_DIR}/qtsinglecoreapplication.h
+
+  lib/QtSingleApplication/qtlocalpeer.cpp
+  lib/QtSingleApplication/qtlockedfile.cpp
+  lib/QtSingleApplication/qtsingleapplication.cpp
+  lib/QtSingleApplication/qtsinglecoreapplication.cpp
+)
+
+if (WIN32)
+  list(APPEND UQT_SINGLETON_SRC_FILE lib/QtSingleApplication/qtlockedfile_win.cpp)
+elseif(UNIX)
+  list(APPEND UQT_SINGLETON_SRC_FILE lib/QtSingleApplication/qtlockedfile_unix.cpp)
+endif(WIN32)
+
+# ===================================================================
+# uqt
+
+add_library(uqt SHARED
+  lib/display.cpp
+  ${UQT_SINGLETON_SRC_FILE}
+)
+
+target_compile_definitions(uqt PRIVATE UQT_LIBRARY)
+
+target_include_directories(uqt PRIVATE
+  ${UQT_INCLUDE_DIR}
+  ${UQT_SINGLETON_INCLUDE_DIR}
+)
+
+target_link_libraries(uqt PRIVATE
+  Qt6::Core
+  Qt6::Widgets
+  Qt6::Network
+)
+
+install(TARGETS uqt)
+
