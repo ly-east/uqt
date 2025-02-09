@@ -30,7 +30,7 @@ add_library(uqt SHARED
 target_compile_definitions(uqt PRIVATE UQT_LIBRARY)
 
 target_include_directories(uqt PRIVATE
-  ${CMAKE_SOURCE_DIR}/include
+  ../include
   ${UQT_SINGLETON_INCLUDE_DIR}
 )
 
