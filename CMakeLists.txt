@@ -20,16 +20,6 @@ if(WIN32)
   endif(MSVC)
 endif(WIN32)
 
-find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Network)
 
-add_library(uqt SHARED
-  uqt_global.h
-  display.cpp
-  display.h
-)
-
-target_link_libraries(uqt PRIVATE Qt6::Core Qt6::Widgets)
-
-target_compile_definitions(uqt PRIVATE UQT_LIBRARY)
-
-install(TARGETS uqt)
+add_subdirectory(lib)
