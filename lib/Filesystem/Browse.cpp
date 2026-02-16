@@ -2,6 +2,8 @@
 #include <QDir>
 #include <QFileDialog>
 
+namespace uqt {
+namespace filesystem {
 QString selectOutputDirectory(QWidget *parent, const QString &currentPath) {
   QFileDialog fd{parent};
   fd.setFileMode(QFileDialog::Directory);
@@ -22,3 +24,5 @@ QString selectOutputDirectory(QWidget *parent, const QString &currentPath) {
 
   return outputDirectory;
 }
+} // namespace filesystem
+} // namespace uqt

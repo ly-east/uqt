@@ -5,6 +5,8 @@
 #include <QString>
 #include <filesystem>
 
+namespace uqt {
+namespace string {
 enum class Limitation : unsigned { Short = 38, Medium = 42, Long = 46 };
 
 UQT_EXPORT QString titleLimitation(const QString &title,
@@ -17,5 +19,7 @@ inline QString fromStdPath(const std::filesystem::path &path) {
   return QString::fromStdString(path.string());
 #endif
 }
+} // namespace string
+} // namespace uqt
 
 #endif // STRING_TITLELIMITATION_H
