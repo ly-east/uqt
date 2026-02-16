@@ -58,7 +58,7 @@ add_library(uqt SHARED
 
 target_compile_definitions(uqt PRIVATE UQT_LIBRARY)
 
-target_include_directories(uqt PRIVATE
+target_include_directories(uqt PUBLIC
   ${UQT_INCLUDE_DIR}
   ${UQT_SINGLETON_INCLUDE_DIR}
 )
