@@ -1,8 +1,17 @@
 # uqt
 Qt6 utilities covering:
 
-class Display:
-- Helper functions for hi-DPI environment
+- Display
+  - Helper functions for hi-DPI environment
+
+- Filesystem
+  - selectOutputDirectory: Returns QDir-like string by allowing user to select path with UI provided.
+
+- SingleApplication
+  - Helper for implementing Singleton
+
+- String
+  - TitleLimitation: Concate string if necessary.
 
 # Requirements
 
