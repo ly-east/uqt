@@ -1,13 +1,14 @@
 #ifndef STRING_TITLELIMITATION_H
 #define STRING_TITLELIMITATION_H
 
+#include "uqt_global.h"
 #include <QString>
 #include <filesystem>
 
 enum class Limitation : unsigned { Short = 38, Medium = 42, Long = 46 };
 
-QString titleLimitation(const QString &title,
-                        Limitation limitation = Limitation::Medium);
+UQT_EXPORT QString titleLimitation(const QString &title,
+                                   Limitation limitation = Limitation::Medium);
 
 inline QString fromStdPath(const std::filesystem::path &path) {
 #if defined(_WIN32)
