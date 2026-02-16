@@ -50,6 +50,8 @@ endif(WIN32)
 # uqt
 
 add_library(uqt SHARED
+  lib/Filesystem/Browse.cpp
+  lib/String/TitleLimitation.cpp
   lib/display.cpp
   ${UQT_SINGLETON_SRC_FILE}
 )

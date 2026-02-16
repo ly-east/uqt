@@ -1,0 +1,20 @@
+#ifndef STRING_TITLELIMITATION_H
+#define STRING_TITLELIMITATION_H
+
+#include <QString>
+#include <filesystem>
+
+enum class Limitation : unsigned { Short = 38, Medium = 42, Long = 46 };
+
+QString titleLimitation(const QString &title,
+                        Limitation limitation = Limitation::Medium);
+
+inline QString fromStdPath(const std::filesystem::path &path) {
+#if defined(_WIN32)
+  return QString::fromStdWString(path.wstring());
+#elif defined(__linux__)
+  return QString::fromStdString(path.string());
+#endif
+}
+
+#endif // STRING_TITLELIMITATION_H
